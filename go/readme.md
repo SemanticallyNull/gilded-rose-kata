@@ -9,13 +9,18 @@ go run gilded-rose.go
 - Run tests :
 
 ```shell
-go test
+go test ./...
+```
+**OR**
+```shell
+go get github.com/onsi/ginkgo/ginkgo
+ginkgo -r
 ```
 
 - Run tests and coverage :
 
 ```shell
-go test -coverprofile=coverage.out
+go test ./... -coverprofile=coverage.out
 
 go tool cover -html=coverage.out
 ```
