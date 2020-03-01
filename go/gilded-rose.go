@@ -19,12 +19,11 @@ var items = []Item{
 func main() {
 	fmt.Println("OMGHAI!")
 	// fmt.Print(items)
-	GildedRose()
+	GildedRose(items)
 }
 
-func GildedRose() {
+func GildedRose(items []Item) {
 	for i := 0; i < len(items); i++ {
-
 		if items[i].name != "Aged Brie" && items[i].name != "Backstage passes to a TAFKAL80ETC concert" {
 			if items[i].quality > 0 {
 				if items[i].name != "Sulfuras, Hand of Ragnaros" {
