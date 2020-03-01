@@ -1,4 +1,4 @@
-package main_test
+package inventory_test
 
 import (
 	. "github.com/onsi/ginkgo"
@@ -7,7 +7,7 @@ import (
 	"testing"
 )
 
-func TestGo(t *testing.T) {
+func TestInventory(t *testing.T) {
 	RegisterFailHandler(Fail)
-	RunSpecs(t, "Go Suite")
+	RunSpecs(t, "Inventory Suite")
 }
