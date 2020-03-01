@@ -38,12 +38,22 @@ var _ = Describe("Main", func() {
 		Expect(testItems[0].quality).To(Equal(0))
 	})
 
-	It("should increase the quality of Aged Brie as it ages", func() {
-		testItems := []Item{
-			Item{"Aged Brie", 2, 20},
-		}
-		UpdateItems(testItems)
-		Expect(testItems[0].quality).To(Equal(21))
+	Context("Aged Brie", func() {
+		It("should increase the quality of Aged Brie as it ages", func() {
+			testItems := []Item{
+				Item{"Aged Brie", 2, 20},
+			}
+			UpdateItems(testItems)
+			Expect(testItems[0].quality).To(Equal(21))
+		})
+
+		It("should decrease the sellIn time of Aged Brie as it ages", func() {
+			testItems := []Item{
+				Item{"Aged Brie", 2, 20},
+			}
+			UpdateItems(testItems)
+			Expect(testItems[0].sellIn).To(Equal(1))
+		})
 	})
 
 	It("should not increase the quality of an item above 50", func() {
@@ -88,5 +98,12 @@ var _ = Describe("Main", func() {
 			Expect(testItems[0].quality).To(Equal(13))
 		})
 
+		It("drops quality to 0 after the concert", func() {
+			testItems := []Item{
+				Item{"Backstage passes to a TAFKAL80ETC concert", 0, 10},
+			}
+			UpdateItems(testItems)
+			Expect(testItems[0].quality).To(Equal(0))
+		})
 	})
 })
