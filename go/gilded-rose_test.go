@@ -106,4 +106,12 @@ var _ = Describe("Main", func() {
 			Expect(testItems[0].quality).To(Equal(0))
 		})
 	})
+
+	It("should degrade quality of conjured items twice as fast as regular items", func() {
+		testItems := []Item{
+			Item{"Conjured Mana Cake", 4, 10},
+		}
+		UpdateItems(testItems)
+		Expect(testItems[0].quality).To(Equal(8))
+	})
 })
